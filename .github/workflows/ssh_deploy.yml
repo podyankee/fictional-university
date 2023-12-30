@@ -24,3 +24,4 @@ jobs:
 
       # Deploy
       - run: rsync --archive --compress --delete . ${{ secrets.FTP_USERNAME }}@${{ secrets.SSH_HOST }}:${{ secrets.SERVER_PATH }}
+      - run: rsync -e "ssh -p 20022 -i $HOME/.ssh/known_hosts -o StrictHostKeyChecking=no" --archive --compress --delete . 141.8.192.193/domains/a0900501.xsph.ru/public_html
