@@ -3,7 +3,7 @@ name: Deploy
 on: workflow_dispatch
 
 env:
-  SERVER_HOST: ns1.sprinthost.ru
+  SERVER_HOST: a0900501@mune
   SERVER_USER: a0900501
   SERVER_PATH: /domains/a0900501.xsph.ru/public_html
 
