@@ -16,4 +16,4 @@ jobs:
           server: 141.8.192.193
           username: ${{ secrets.FTP_USERNAME}}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /domains/a0900501.xsph.ru/public_html/wp-content/themes/fictional-university/?
+          server-dir: /domains/a0900501.xsph.ru/public_html/wp-content/themes/fictional-university/
