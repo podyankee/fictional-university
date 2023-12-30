@@ -1,0 +1,23 @@
+name: 'production'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: 'Deploying'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.3.0'
+      - run: 'npm ci'
+      - run: 'npm run dist'
+      - uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: 141.8.192.193
+          username: ${{ secrets.FTP_USERNAME}}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: /domains/a0900501.xsph.ru/public_html/wp-content/themes/fictional-university
