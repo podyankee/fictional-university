@@ -1,11 +1,11 @@
-name: Deploy
+name: SSH Deploy
 
 on: workflow_dispatch
 
 env:
   SERVER_HOST: 141.8.192.193
   SERVER_USER: a0900501
-  SERVER_PATH: /home/a0900501/domains/a0900501.xsph.ru/public_html
+  SERVER_PATH: /home/a0900501/domains/a0900501.xsph.ru/public_html/wp_content/themes/fictional-university
 
 jobs:
   deploy:
