@@ -2,9 +2,6 @@ name: SSH Deploy
 
 on: workflow_dispatch
 
-env:
-  SERVER_PATH: /home/a0900501/domains/a0900501.xsph.ru/public_html/wp-content/themes/fictional-university
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -23,4 +20,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       # Deploy
-      - run: rsync --archive --compress --delete . ${{ secrets.SERVER_USER }}@${{ secrets.SSH_HOST }}:${{ env.SERVER_PATH }}
+      - run: rsync --archive --compress --delete . ${{ secrets.SERVER_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SERVER_PATH }}
