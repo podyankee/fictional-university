@@ -2,11 +2,6 @@ name: SSH Deploy
 
 on: workflow_dispatch
 
-env:
-  SERVER_HOST: 141.8.192.193
-  SERVER_USER: a0900501
-  SERVER_PATH: /home/a0900501/domains/a0900501.xsph.ru/public_html/wp-content/themes/fictional-university
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -25,4 +20,4 @@ jobs:
         run: ssh-keyscan -H ${{ env.SERVER_HOST }} >> ~/.ssh/known_hosts
 
       # Deploy
-      - run: rsync --archive --compress --progress . ${{ env.SERVER_USER }}@${{ env.SERVER_HOST }}:${{ env.SERVER_PATH }}
+      - run: rsync --archive --compress --progress . ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}
